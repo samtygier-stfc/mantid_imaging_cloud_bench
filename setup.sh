@@ -12,6 +12,9 @@ source ~/miniforge3/etc/profile.d/conda.sh
 mamba env create -f https://raw.githubusercontent.com/samtygier-stfc/tomophantomtool/main/environment.yaml
 mamba env create -f https://raw.githubusercontent.com/mantidproject/mantidimaging/stable/environment.yml
 
+# Work around for old glibc on Rocky8
+mamba run -n tomophantom bash setup_tomophantom.sh
+
 # Get scripts
 git clone https://github.com/samtygier-stfc/tomophantomtool.git
 
