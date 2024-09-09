@@ -99,7 +99,11 @@ def main():
         t0 = time.perf_counter()
         recon = run_recon(sample_data.sample, sample_settings | run_settings)
         t1 = time.perf_counter()
-        print(f"Done {run_name}. Took {t1-t0}s")
+        run_time = t1-t0
+        print(f"Done {run_name}. Took {run_time}s")
+        (Path.home() / "results").mkdir(exist_ok=True)
+        (Path.home() / "results" / "metrics.yml").write_text(f"time: {run_time}\n")
+
         #image_save(recon, out_dir)
         recon.data -= recon.data.min()
         recon.data *=  (2**16 / recon.data.max()) 
