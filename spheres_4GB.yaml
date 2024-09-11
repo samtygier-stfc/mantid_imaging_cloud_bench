@@ -1,0 +1,14 @@
+model: 11
+n_size: 1000
+debug_labels: False
+angles:
+  linspace: [0,360, 1000]
+stacks:
+  sample:
+    subdir: "Tomo"
+    pattern: "Spheres_{:04d}.tiff"
+    imat_log: tomo.txt
+
+effects:
+  shot_to_shot:
+    random: 1e-3
